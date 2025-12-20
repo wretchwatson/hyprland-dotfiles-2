@@ -2,7 +2,6 @@ antigravity
 catppuccin-sddm-theme-mocha
 fjordlauncher-bin
 google-chrome
-paru-git
 spotify
 spotify-adblock
 ttf-comfortaa

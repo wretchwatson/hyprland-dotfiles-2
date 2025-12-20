@@ -30,14 +30,9 @@ fi
 echo -e "${GREEN}[+] Paketler yükleniyor...${NC}"
 # Arch paketleri
 sudo pacman -S --needed - < pkglist_native.txt
-# AUR paketleri (paru varsa)
-if command -v paru &> /dev/null; then
-    paru -S --needed - < pkglist_aur.txt
-elif command -v yay &> /dev/null; then
-    yay -S --needed - < pkglist_aur.txt
-else
-    echo "UYARI: AUR yardımcısı (paru/yay) bulunamadı. AUR paketleri yüklenemedi."
-fi
+# AUR paketleri
+echo -e "${GREEN}[+] AUR paketleri yükleniyor...${NC}"
+paru -S --needed - < pkglist_aur.txt
 
 # 2. Klasörleri Oluştur
 mkdir -p ~/.config
