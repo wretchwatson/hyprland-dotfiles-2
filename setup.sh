@@ -91,5 +91,9 @@ if [ -d "$HOME/dotfiles/etc/sddm.conf.d" ]; then
     sudo cp -r "$HOME/dotfiles/etc/sddm.conf.d/." /etc/sddm.conf.d/
 fi
 
+# SDDM Servisini Aktif Et
+echo -e "${GREEN}[+] SDDM servisi aktifleştiriliyor...${NC}"
+sudo systemctl enable sddm
+
 echo -e "${GREEN}### Kurulum Tamamlandı! ###${NC}"
 echo "Lütfen yeni ayarların geçerli olması için oturumu kapatıp açın veya shell'i yeniden başlatın."
