@@ -80,6 +80,13 @@ backup_and_copy "$SCRIPT_DIR/.config/gtk-4.0" "$HOME/.config/gtk-4.0"
 backup_and_copy "$SCRIPT_DIR/.config/wlogout" "$HOME/.config/wlogout"
 backup_and_copy "$SCRIPT_DIR/.config/mimeapps.list" "$HOME/.config/mimeapps.list"
 
+# XFCE4 Terminal Fixes (Micro ve Thunar için)
+mkdir -p "$HOME/.config/xfce4"
+backup_and_copy "$SCRIPT_DIR/.config/xfce4/helpers.rc" "$HOME/.config/xfce4/helpers.rc"
+
+mkdir -p "$HOME/.local/share/xfce4/helpers"
+backup_and_copy "$SCRIPT_DIR/.local/share/xfce4/helpers/kitty.desktop" "$HOME/.local/share/xfce4/helpers/kitty.desktop"
+
 # Dosyalar
 backup_and_copy "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 backup_and_copy "$SCRIPT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"

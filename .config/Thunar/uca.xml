@@ -5,11 +5,27 @@
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
 	<unique-id>1765062455824435-1</unique-id>
-	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<command>kitty --directory %f</command>
 	<description>Example for a custom action</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
+</action>
+<action>
+	<icon>micro</icon>
+	<name>Open with Micro</name>
+	<submenu></submenu>
+	<unique-id>1765062455824436-2</unique-id>
+	<command>kitty -e micro %f</command>
+	<description>Open file with Micro text editor</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
 </action>
 </actions>
