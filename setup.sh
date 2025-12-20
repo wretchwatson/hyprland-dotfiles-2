@@ -6,6 +6,26 @@ NC='\033[0m'
 
 echo -e "${GREEN}### Dotfiles Kurulumu Başlıyor... ###${NC}"
 
+# 0. Ön Hazırlık (Git ve AUR Yardımcısı)
+echo -e "${GREEN}[+] Ön gereksinimler kontrol ediliyor...${NC}"
+
+# Git Kontrolü
+if ! command -v git &> /dev/null; then
+    echo "Git bulunamadı, yükleniyor..."
+    sudo pacman -S --noconfirm git
+fi
+
+# Paru/Yay Kontrolü ve Kurulumu
+if ! command -v paru &> /dev/null && ! command -v yay &> /dev/null; then
+    echo "AUR yardımcısı bulunamadı. Paru kuruluyor..."
+    sudo pacman -S --needed --noconfirm base-devel
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ..
+    rm -rf paru
+fi
+
 # 1. Paketleri Yükle
 echo -e "${GREEN}[+] Paketler yükleniyor...${NC}"
 # Arch paketleri
