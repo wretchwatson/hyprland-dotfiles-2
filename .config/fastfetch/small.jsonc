@@ -1,0 +1,48 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "small",
+        "padding": {
+            "top": 0,
+            "right": 2
+        }
+    },
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+        {
+            "type": "os",
+            "key": "",
+            "keyColor": "blue"
+        },
+        {
+            "type": "uptime",
+            "key": "󰅐",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "command",
+            "key": "",
+            "keyColor": "green",
+            "text": "sh -c \"echo \\\"$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print int(usage)}')% (Temp: $(sensors | grep 'Tctl' | awk '{print $2}'))\\\" 2>/dev/null\""
+        },
+        {
+            "type": "memory",
+            "key": "",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "disk",
+            "key": "",
+            "keyColor": "cyan"
+        },
+        {
+            "type": "localip",
+            "key": "",
+            "keyColor": "red",
+            "showIpv6": false,
+            "showMac": false
+        }
+    ]
+}

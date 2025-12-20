@@ -1,0 +1,117 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "network",
+        "tray",
+        "memory",
+        "pulseaudio",
+        "battery",
+        "custom/clock",
+        "custom/notification",
+        "custom/screenshot",
+        "custom/power"
+    ],
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "custom/clock": {
+        "exec": "date +' %H:%M   %d/%m'",
+        "interval": 60,
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+    "custom/screenshot": {
+        "format": " ",
+        "on-click": "~/.config/hypr/scripts/screenshot.sh area",
+        "on-click-right": "~/.config/hypr/scripts/screenshot.sh full",
+        "tooltip": true,
+        "tooltip-format": "Sol: Seçim | Sağ: Tam Ekran"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "swaync-client -t",
+        "escape": true
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%",
+        "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)\nSwap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB ({swapPercentage}%)"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+        "format-ethernet": "↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click-right": "~/.config/hypr/scripts/check_ip.sh",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    }
+}
