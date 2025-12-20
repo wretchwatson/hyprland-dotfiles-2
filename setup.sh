@@ -37,58 +37,60 @@ paru -S --needed - < pkglist_aur.txt
 # 2. Klasörleri Oluştur
 mkdir -p ~/.config
 
-# 3. Konfigürasyonları Linkle
-echo -e "${GREEN}[+] Ayarlar sembolik link ile bağlanıyor...${NC}"
+# Scriptin bulunduğu dizini al
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# Yedekleme fonksiyonu
-backup_and_link() {
+# 3. Kopyalama Fonksiyonu
+echo -e "${GREEN}[+] Ayarlar kopyalanıyor...${NC}"
+
+# Yedekleme ve kopyalama fonksiyonu
+backup_and_copy() {
     src="$1"
     dest="$2"
     
-    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+    # Hedef bir sembolik link ise, önce onu kaldır (eski kurulumdan kalma olabilir)
+    if [ -L "$dest" ]; then
+        echo "Eski sembolik link kaldırılıyor: $dest"
+        rm "$dest"
+    fi
+
+    # Hedef zaten varsa ve link değilse yedekle
+    if [ -e "$dest" ]; then
         echo "Yedekleniyor: $dest -> $dest.backup"
         mv "$dest" "$dest.backup"
     fi
 
-    if [ ! -L "$dest" ]; then
-        ln -s "$src" "$dest"
-        echo "Linklendi: $dest"
-    else
-        echo "Zaten linkli: $dest"
-    fi
+    # Kopyala
+    echo "Kopyalanıyor: $src -> $dest"
+    cp -r "$src" "$dest"
 }
 
 # Config klasörleri
-backup_and_link "$HOME/dotfiles/.config/hypr" "$HOME/.config/hypr"
-backup_and_link "$HOME/dotfiles/.config/waybar" "$HOME/.config/waybar"
-backup_and_link "$HOME/dotfiles/.config/wofi" "$HOME/.config/wofi"
-backup_and_link "$HOME/dotfiles/.config/kitty" "$HOME/.config/kitty"
-backup_and_link "$HOME/dotfiles/.config/fastfetch" "$HOME/.config/fastfetch"
-backup_and_link "$HOME/dotfiles/.config/qt6ct" "$HOME/.config/qt6ct"
-backup_and_link "$HOME/dotfiles/.config/Kvantum" "$HOME/.config/Kvantum"
-backup_and_link "$HOME/dotfiles/.config/Thunar" "$HOME/.config/Thunar"
-backup_and_link "$HOME/dotfiles/.config/swaync" "$HOME/.config/swaync"
-backup_and_link "$HOME/dotfiles/.config/gtk-3.0" "$HOME/.config/gtk-3.0"
-backup_and_link "$HOME/dotfiles/.config/gtk-4.0" "$HOME/.config/gtk-4.0"
-backup_and_link "$HOME/dotfiles/.config/wlogout" "$HOME/.config/wlogout"
-backup_and_link "$HOME/dotfiles/.config/mimeapps.list" "$HOME/.config/mimeapps.list"
+backup_and_copy "$SCRIPT_DIR/.config/hypr" "$HOME/.config/hypr"
+backup_and_copy "$SCRIPT_DIR/.config/waybar" "$HOME/.config/waybar"
+backup_and_copy "$SCRIPT_DIR/.config/wofi" "$HOME/.config/wofi"
+backup_and_copy "$SCRIPT_DIR/.config/kitty" "$HOME/.config/kitty"
+backup_and_copy "$SCRIPT_DIR/.config/fastfetch" "$HOME/.config/fastfetch"
+backup_and_copy "$SCRIPT_DIR/.config/qt6ct" "$HOME/.config/qt6ct"
+backup_and_copy "$SCRIPT_DIR/.config/Kvantum" "$HOME/.config/Kvantum"
+backup_and_copy "$SCRIPT_DIR/.config/Thunar" "$HOME/.config/Thunar"
+backup_and_copy "$SCRIPT_DIR/.config/swaync" "$HOME/.config/swaync"
+backup_and_copy "$SCRIPT_DIR/.config/gtk-3.0" "$HOME/.config/gtk-3.0"
+backup_and_copy "$SCRIPT_DIR/.config/gtk-4.0" "$HOME/.config/gtk-4.0"
+backup_and_copy "$SCRIPT_DIR/.config/wlogout" "$HOME/.config/wlogout"
+backup_and_copy "$SCRIPT_DIR/.config/mimeapps.list" "$HOME/.config/mimeapps.list"
 
 # Dosyalar
-backup_and_link "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
-backup_and_link "$HOME/dotfiles/.p10k.zsh" "$HOME/.p10k.zsh"
-backup_and_link "$HOME/dotfiles/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
-backup_and_link "$HOME/dotfiles/Wallpaper" "$HOME/Wallpaper"
+backup_and_copy "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
+backup_and_copy "$SCRIPT_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+backup_and_copy "$SCRIPT_DIR/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
+backup_and_copy "$SCRIPT_DIR/Wallpaper" "$HOME/Wallpaper"
 
 # 4. Sistem Konfigürasyonları (Sudo gerektirir)
 echo -e "${GREEN}[+] Sistem dosyaları kopyalanıyor (Sudo)...${NC}"
-if [ -f "$HOME/dotfiles/etc/sddm.conf" ]; then
+if [ -f "$SCRIPT_DIR/etc/sddm.conf" ]; then
     echo "SDDM Config: /etc/sddm.conf"
-    sudo cp "$HOME/dotfiles/etc/sddm.conf" /etc/sddm.conf
-fi
-if [ -d "$HOME/dotfiles/etc/sddm.conf.d" ]; then
-    echo "SDDM Config Dir: /etc/sddm.conf.d/"
-    sudo mkdir -p /etc/sddm.conf.d
-    sudo cp -r "$HOME/dotfiles/etc/sddm.conf.d/." /etc/sddm.conf.d/
+    sudo cp "$SCRIPT_DIR/etc/sddm.conf" /etc/sddm.conf
 fi
 
 # SDDM Servisini Aktif Et

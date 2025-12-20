@@ -1,5 +1,6 @@
 antigravity
 catppuccin-sddm-theme-mocha
+catppuccin-gtk-theme-mocha
 fjordlauncher-bin
 google-chrome
 spotify
@@ -7,3 +8,4 @@ spotify-adblock
 ttf-comfortaa
 ttf-quicksand-variable
 wlogout
+bibata-cursor-theme-bin

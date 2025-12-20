@@ -74,7 +74,6 @@ ttf-roboto
 tumbler
 unzip
 waybar
-weston
 wireplumber
 wl-clipboard
 wofi
