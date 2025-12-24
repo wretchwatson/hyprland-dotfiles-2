@@ -14,11 +14,11 @@
     ],
     "modules-right": [
         "network",
-        "tray",
         "memory",
         "pulseaudio",
         "battery",
         "custom/clock",
+        "tray",
         "custom/notification",
         "custom/screenshot",
         "custom/power"
