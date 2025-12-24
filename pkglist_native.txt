@@ -25,7 +25,7 @@ hyprland
 hyprlock
 hyprpaper
 inxi
-jdk17-openjdk
+jre17-openjdk
 jre21-openjdk
 kitty
 kvantum
@@ -73,12 +73,14 @@ ttf-nerd-fonts-symbols
 ttf-roboto
 tumbler
 unzip
+unrar
 waybar
 wireplumber
 wl-clipboard
 wofi
 xdg-user-dirs
 yt-dlp
+zip
 zoxide
 zsh
 zsh-autosuggestions
