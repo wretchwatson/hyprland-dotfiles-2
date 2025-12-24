@@ -14,8 +14,8 @@ WORKSPACE=$(echo "$CLIENT_DATA" | jq -r '.workspace.name')
 IS_PINNED=$(echo "$CLIENT_DATA" | jq -r '.pinned')
 
 if [[ "$WORKSPACE" == "10" ]]; then
-    # Eğer 10. workspace'teyse (gizliyse): Mevcut workspace'e getir
-    hyprctl dispatch movetoworkspace current,address:$WINDOW_ADDR
+    # Eğer 10. workspace'teyse (gizliyse): Mevcut workspace'e getir (silent: focusu değiştirme)
+    hyprctl dispatch movetoworkspacesilent current,address:$WINDOW_ADDR
     # Tekrar pinle
     if [ "$IS_PINNED" = "false" ]; then
         hyprctl dispatch pin address:$WINDOW_ADDR
@@ -26,7 +26,7 @@ else
     if [ "$IS_PINNED" = "true" ]; then
         hyprctl dispatch pin address:$WINDOW_ADDR
     fi
-    # Sonra 10. workspace'e (arkaya) gönder
-    hyprctl dispatch movetoworkspace 10,address:$WINDOW_ADDR
+    # Sonra 10. workspace'e (arkaya) sessizce gönder (focusu değiştirme)
+    hyprctl dispatch movetoworkspacesilent 10,address:$WINDOW_ADDR
     notify-send "PiP" "Video 10. workspace'e saklandı." -i mpv
 fi
