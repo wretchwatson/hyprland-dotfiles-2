@@ -36,9 +36,10 @@
         "spacing": 10
     },
     "custom/clock": {
-        "exec": "date +' %H:%M   %d/%m'",
+        "exec": "printf '{\"text\":\"%s\", \"tooltip\":\"%s\"}\\n' \"$(date +' %H:%M   %d/%m')\" \"$(date +'%A, %d %B %Y')\"",
+        "return-type": "json",
         "interval": 60,
-        "tooltip": false
+        "tooltip": true
     },
     "custom/power": {
         "format": " ",
