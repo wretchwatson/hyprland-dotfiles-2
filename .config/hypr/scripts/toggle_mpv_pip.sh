@@ -13,20 +13,20 @@ WINDOW_ADDR=$(echo "$CLIENT_DATA" | jq -r '.address')
 WORKSPACE=$(echo "$CLIENT_DATA" | jq -r '.workspace.name')
 IS_PINNED=$(echo "$CLIENT_DATA" | jq -r '.pinned')
 
-if [[ "$WORKSPACE" == "special:magic" ]]; then
-    # Eğer gizli alandaysa: Mevcut workspace'e getir
+if [[ "$WORKSPACE" == "10" ]]; then
+    # Eğer 10. workspace'teyse (gizliyse): Mevcut workspace'e getir
     hyprctl dispatch movetoworkspace current,address:$WINDOW_ADDR
-    # Değilse pinle (her zaman pinli gelsin)
+    # Tekrar pinle
     if [ "$IS_PINNED" = "false" ]; then
         hyprctl dispatch pin address:$WINDOW_ADDR
     fi
-    notify-send "PiP" "Video geri getirildi ve pinlendi." -i mpv
+    notify-send "PiP" "Video 10. workspace'ten geri getirildi." -i mpv
 else
-    # Eğer görünürdeyse: Önce pinliyse pini kaldır (gizlenmesi için şart)
+    # Eğer görünürdeyse: Önce pinliyse pini kaldır
     if [ "$IS_PINNED" = "true" ]; then
         hyprctl dispatch pin address:$WINDOW_ADDR
     fi
-    # Sonra gizli alana gönder
-    hyprctl dispatch movetoworkspace special:magic,address:$WINDOW_ADDR
-    notify-send "PiP" "Video arka plana (gizli alana) alındı." -i mpv
+    # Sonra 10. workspace'e (arkaya) gönder
+    hyprctl dispatch movetoworkspace 10,address:$WINDOW_ADDR
+    notify-send "PiP" "Video 10. workspace'e saklandı." -i mpv
 fi
