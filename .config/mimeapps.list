@@ -7,3 +7,12 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 inode/directory=thunar.desktop
 x-scheme-handler/terminal=kitty.desktop
+image/jpeg=org.gnome.Loupe.desktop
+image/png=org.gnome.Loupe.desktop
+image/gif=org.gnome.Loupe.desktop
+image/webp=org.gnome.Loupe.desktop
+image/bmp=org.gnome.Loupe.desktop
+image/tiff=org.gnome.Loupe.desktop
+image/svg+xml=org.gnome.Loupe.desktop
+image/vnd.microsoft.icon=org.gnome.Loupe.desktop
+
