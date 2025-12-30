@@ -1,89 +1,113 @@
-amd-ucode
-base
-base-devel
-bash-completion
-bat
-bluez
-bluez-utils
-cliphist
-discord
-dmidecode
-efibootmgr
-eza
-fastfetch
-file-roller
-font-manager
-fzf
-git
-grim
-gst-plugin-pipewire
-gvfs
-gvfs-smb
-htop
-hypridle
-hyprland
-hyprlock
-hyprpaper
-inxi
-jre17-openjdk
-jre21-openjdk
-kitty
-jq
-kvantum
-kvantum-qt5
-lib32-nvidia-utils
-libpulse
-loupe
-linux-firmware
-linux-lts
-linux-lts-headers
-micro
-mpv
-nano
-nano-syntax-highlighting
-networkmanager
-noto-fonts
-noto-fonts-cjk
-noto-fonts-emoji
-ntfs-3g
-nvidia-open-lts
-nvidia-utils
-nwg-look
-otf-font-awesome
-papirus-icon-theme
-pipewire
-pipewire-alsa
-pipewire-jack
-pipewire-pulse
-polkit-gnome
-python-pip
-qbittorrent
-qt5-graphicaleffects
-qt5-quickcontrols2
-qt6-wayland
-qt6ct
-sbctl
-sddm
-seahorse
-slurp
-swaync
-terminus-font
-thunar
-thunar-archive-plugin
-ttf-jetbrains-mono-nerd
-ttf-nerd-fonts-symbols
-ttf-roboto
-tumbler
-unzip
-unrar
-waybar
-wireplumber
-wl-clipboard
-wofi
-xdg-user-dirs
-yt-dlp
-zip
-zoxide
-zsh
-zsh-autosuggestions
-zsh-syntax-highlighting
+acme 2025.07.11-2
+amd-ucode 20251125-2
+base 3-2
+base-devel 1-2
+bash-completion 2.17.0-2
+bat 0.26.1-1
+bluez 5.85-1
+bluez-utils 5.85-1
+cliphist 1:0.7.0-1
+discord 1:0.0.119-1
+dmidecode 3.7-1
+dosfstools 4.2-5
+dotnet-sdk 10.0.0.sdk100-1
+efibootmgr 18-3
+exfatprogs 1.3.1-1
+eza 0.23.4-1
+fastfetch 2.56.1-1
+file-roller 44.6-1
+font-manager 0.9.4-2
+fzf 0.67.0-2
+gimp 3.0.6-2
+git 2.52.0-2
+gnome-disk-utility 46.1-2
+gparted 1.7.0-1
+grim 1.5.0-2
+gst-plugin-pipewire 1:1.4.9-2
+gvfs 1.58.0-2
+gvfs-smb 1.58.0-2
+htop 3.4.1-1
+hypridle 0.1.7-6
+hyprland 0.53.0-2
+hyprlock 0.9.2-8
+hyprpaper 0.8.0-2
+hyprpicker 0.4.5-8
+imagemagick 7.1.2.11-1
+inxi 3.3.40.1-1
+jdk17-openjdk 17.0.17.u10-1
+jq 1.8.1-1
+jre21-openjdk 21.0.9.u10-1
+kitty 0.44.0-1
+kvantum 1.1.5-1
+kvantum-qt5 1.1.5-1
+lib32-gnutls 3.8.11-1
+lib32-nvidia-utils 590.48.01-1
+libpulse 17.0+r98+gb096704c0-1
+linux-firmware 20251125-2
+linux-lts 6.12.63-1
+linux-lts-headers 6.12.63-1
+loupe 49.1-1
+micro 2.0.14-1
+mpv 1:0.41.0-2
+mtools 1:4.0.49-1
+mtr 0.96-1
+nano 8.7-1
+nano-syntax-highlighting 2025.07.01.r0.g256995b-2
+networkmanager 1.54.3-1
+noto-fonts 1:2025.12.01-2
+noto-fonts-cjk 20240730-1
+noto-fonts-emoji 1:2.051-1
+ntfs-3g 2022.10.3-2
+nvidia-open-lts 1:590.48.01-3
+nvidia-utils 590.48.01-1
+nwg-look 1.0.6-1
+otf-font-awesome 7.1.0-1
+papirus-icon-theme 20250501-1
+pavucontrol 1:6.2-1
+pipewire 1:1.4.9-2
+pipewire-alsa 1:1.4.9-2
+pipewire-jack 1:1.4.9-2
+pipewire-pulse 1:1.4.9-2
+polkit-gnome 0.105-12
+python-pip 25.3-1
+qbittorrent 5.1.4-1
+qt5-graphicaleffects 5.15.18-1
+qt5-quickcontrols2 5.15.18+kde+r5-1
+qt6-wayland 6.10.1-1
+qt6ct 0.11-3
+rclone 1.72.1-1
+sbctl 0.18-1
+screen 5.0.1-3
+sddm 0.21.0-6
+seahorse 1:47.0.1-6
+slurp 1.5.0-1
+socat 1.8.1.0-1
+steam 1.0.0.85-1
+swaync 0.12.3-1
+terminus-font 4.49.1-8
+thunar 4.20.6-1
+thunar-archive-plugin 0.6.0-1
+thunar-media-tags-plugin 0.6.0-1
+thunar-shares-plugin 1:0.5.0-1
+ttf-jetbrains-mono-nerd 3.4.0-1
+ttf-nerd-fonts-symbols 3.4.0-1
+ttf-roboto 3.014-1
+tumbler 4.20.1-1
+unrar 1:7.2.3-1
+unzip 6.0-23
+waybar 0.14.0-5
+wget 1.25.0-3
+wireplumber 0.5.12-1
+wl-clipboard 1:2.2.1-3
+wofi 1.5.1-1
+xdg-desktop-portal 1.20.3-2
+xdg-desktop-portal-gtk 1.15.3-1
+xdg-desktop-portal-hyprland 1.3.11-3
+xdg-user-dirs 0.19-2
+xorg-xhost 1.0.10-1
+yt-dlp 2025.12.08-1
+zip 3.0-11
+zoxide 0.9.8-2
+zsh 5.9-5
+zsh-autosuggestions 0.7.1-1
+zsh-syntax-highlighting 0.8.0-1
