@@ -33,7 +33,39 @@ sudo pacman -S --needed - < pkglist_native.txt
 # AUR paketleri
 echo -e "${GREEN}[+] AUR paketleri yükleniyor...${NC}"
 paru -S --needed - < pkglist_aur.txt
+paru -S --needed - < pkglist_aur.txt
 
+# 1.5 ZSH ve Oh-My-ZSH Kurulumu
+echo -e "${GREEN}[+] ZSH, Oh-My-ZSH ve Eklentiler Kuruluyor...${NC}"
+
+# ZSH Yüklü mü?
+if ! command -v zsh &> /dev/null; then
+    sudo pacman -S --noconfirm zsh
+fi
+
+# Oh-My-ZSH Kurulumu (Eğer yoksa)
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Oh-My-ZSH kuruluyor..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# Powerlevel10k Teması
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+    echo "Powerlevel10k teması indiriliyor..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
+
+# ZSH Autosuggestions
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+    echo "zsh-autosuggestions eklentisi indiriliyor..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+# ZSH Syntax Highlighting
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+    echo "zsh-syntax-highlighting eklentisi indiriliyor..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
 # 2. Klasörleri Oluştur
 mkdir -p ~/.config
 
