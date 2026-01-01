@@ -132,6 +132,14 @@ if [ -f "$SCRIPT_DIR/etc/sddm.conf" ]; then
     sudo cp "$SCRIPT_DIR/etc/sddm.conf" /etc/sddm.conf
 fi
 
+# Locale Ayarları
+echo -e "${GREEN}[+] Locale ayarları yapılandırılıyor...${NC}"
+sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i 's/#tr_TR.UTF-8 UTF-8/tr_TR.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+echo "LANG=tr_TR.UTF-8" | sudo tee /etc/locale.conf
+xdg-user-dirs-update
+
 # SDDM Servisini Aktif Et
 echo -e "${GREEN}[+] SDDM servisi aktifleştiriliyor...${NC}"
 sudo systemctl enable sddm
